@@ -1,0 +1,214 @@
+
+test_preemptee.elf:     format de fichier elf32-littlearm
+
+Contenu de la section .note.gnu.build-id:
+ 10074 04000000 14000000 03000000 474e5500  ............GNU.
+ 10084 f86a7de0 593a74f4 e4a59547 bb3fea52  .j}.Y:t....G.?.R
+ 10094 b4edd7b3                             ....            
+Contenu de la section .text:
+ 10098 010080e2 010080e2 010050e1 0b00000a  ..........P.....
+ 100a8 012082e2 012082e2 012082e2 012082e2  . ... ... ... ..
+ 100b8 013083e2 013083e2 013083e2 013083e2  .0...0...0...0..
+ 100c8 014084e2 014084e2 014084e2 070000ea  .@...@...@......
+ 100d8 015085e2 015085e2 015085e2 015085e2  .P...P...P...P..
+ 100e8 016086e2 016086e2 016086e2 016086e2  .`...`...`...`..
+ 100f8 017087e2 017087e2 017087e2 e3ffffea  .p...p...p......
+ 10108 0000a0e1 0000a0e1 0000a0e1 0000a0e1  ................
+ 10118 018088e2 018088e2 018088e2 018088e2  ................
+ 10128 019089e2 019089e2 019089e2 019089e2  ................
+ 10138 01a08ae2 01a08ae2 01a08ae2 f3ffffeb  ................
+Contenu de la section .ARM.attributes:
+ 0000 41190000 00616561 62690001 0f000000  A....aeabi......
+ 0010 05355400 06030801 0901               .5T.......      
+Contenu de la section .debug_aranges:
+ 0000 1c000000 02000000 00000400 00000000  ................
+ 0010 98000100 b0000000 00000000 00000000  ................
+Contenu de la section .debug_info:
+ 0000 80000000 02000000 00000401 00000000  ................
+ 0010 98000100 48010100 74657374 5f707265  ....H...test_pre
+ 0020 656d7074 65652e53 002f686f 6d652f74  emptee.S./home/t
+ 0030 6361726c 652f7072 6f6a6574 732f4f54  carle/projets/OT
+ 0040 4157412f 64697374 2f6c696e 75782d78  AWA/dist/linux-x
+ 0050 38365f36 342f6f74 6177612d 636f7265  86_64/otawa-core
+ 0060 322d6275 696c642f 64657673 5f6c6f63  2-build/devs_loc
+ 0070 61757800 474e5520 41532032 2e32362e  aux.GNU AS 2.26.
+ 0080 31000180                             1...            
+Contenu de la section .debug_abbrev:
+ 0000 01110010 06110112 0103081b 08250813  .............%..
+ 0010 05000000                             ....            
+Contenu de la section .debug_line:
+ 0000 65000000 02002700 00000201 fb0e0d00  e.....'.........
+ 0010 01010101 00000001 00000100 74657374  ............test
+ 0020 5f707265 656d7074 65652e53 00000000  _preemptee.S....
+ 0030 00000502 98000100 162f2f2f 2f2f2f2f  .........///////
+ 0040 2f2f2f2f 2f2f2f2f 2f2f2f2f 2f2f2f2f  ////////////////
+ 0050 2f2f2f2f 2f2f2f2f 302f2f2f 2f2f2f2f  ////////0///////
+ 0060 2f2f2f2f 02020001 01                 ////.....       
+
+Déassemblage de la section .note.gnu.build-id:
+
+00010074 <.note.gnu.build-id>:
+   10074:	00000004 	andeq	r0, r0, r4
+   10078:	00000014 	andeq	r0, r0, r4, lsl r0
+   1007c:	00000003 	andeq	r0, r0, r3
+   10080:	00554e47 	subseq	r4, r5, r7, asr #28
+   10084:	e07d6af8 	ldrsht	r6, [sp], #-168	; 0xffffff58
+   10088:	f4743a59 			; <UNDEFINED> instruction: 0xf4743a59
+   1008c:	4795a5e4 	ldrmi	sl, [r5, r4, ror #11]
+   10090:	52ea3fbb 	rscpl	r3, sl, #748	; 0x2ec
+   10094:	b3d7edb4 	bicslt	lr, r7, #180, 26	; 0x2d00
+
+Déassemblage de la section .text:
+
+00010098 <_start>:
+   10098:	e2800001 	add	r0, r0, #1
+   1009c:	e2800001 	add	r0, r0, #1
+   100a0:	e1500001 	cmp	r0, r1
+   100a4:	0a00000b 	beq	100d8 <bb2>
+   100a8:	e2822001 	add	r2, r2, #1
+   100ac:	e2822001 	add	r2, r2, #1
+   100b0:	e2822001 	add	r2, r2, #1
+   100b4:	e2822001 	add	r2, r2, #1
+   100b8:	e2833001 	add	r3, r3, #1
+   100bc:	e2833001 	add	r3, r3, #1
+   100c0:	e2833001 	add	r3, r3, #1
+   100c4:	e2833001 	add	r3, r3, #1
+   100c8:	e2844001 	add	r4, r4, #1
+   100cc:	e2844001 	add	r4, r4, #1
+   100d0:	e2844001 	add	r4, r4, #1
+   100d4:	ea000007 	b	100f8 <join>
+
+000100d8 <bb2>:
+   100d8:	e2855001 	add	r5, r5, #1
+   100dc:	e2855001 	add	r5, r5, #1
+   100e0:	e2855001 	add	r5, r5, #1
+   100e4:	e2855001 	add	r5, r5, #1
+   100e8:	e2866001 	add	r6, r6, #1
+   100ec:	e2866001 	add	r6, r6, #1
+   100f0:	e2866001 	add	r6, r6, #1
+   100f4:	e2866001 	add	r6, r6, #1
+
+000100f8 <join>:
+   100f8:	e2877001 	add	r7, r7, #1
+   100fc:	e2877001 	add	r7, r7, #1
+   10100:	e2877001 	add	r7, r7, #1
+   10104:	eaffffe3 	b	10098 <_start>
+   10108:	e1a00000 	nop			; (mov r0, r0)
+   1010c:	e1a00000 	nop			; (mov r0, r0)
+   10110:	e1a00000 	nop			; (mov r0, r0)
+   10114:	e1a00000 	nop			; (mov r0, r0)
+
+00010118 <start_preempt>:
+   10118:	e2888001 	add	r8, r8, #1
+   1011c:	e2888001 	add	r8, r8, #1
+   10120:	e2888001 	add	r8, r8, #1
+   10124:	e2888001 	add	r8, r8, #1
+   10128:	e2899001 	add	r9, r9, #1
+   1012c:	e2899001 	add	r9, r9, #1
+   10130:	e2899001 	add	r9, r9, #1
+   10134:	e2899001 	add	r9, r9, #1
+   10138:	e28aa001 	add	sl, sl, #1
+   1013c:	e28aa001 	add	sl, sl, #1
+   10140:	e28aa001 	add	sl, sl, #1
+   10144:	ebfffff3 	bl	10118 <start_preempt>
+
+Déassemblage de la section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00001941 	andeq	r1, r0, r1, asr #18
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	0000000f 	andeq	r0, r0, pc
+  10:	00543505 	subseq	r3, r4, r5, lsl #10
+  14:	01080306 	tsteq	r8, r6, lsl #6
+  18:	Adresse 0x0000000000000018 hors limites.
+
+
+Déassemblage de la section .debug_aranges:
+
+00000000 <.debug_aranges>:
+   0:	0000001c 	andeq	r0, r0, ip, lsl r0
+   4:	00000002 	andeq	r0, r0, r2
+   8:	00040000 	andeq	r0, r4, r0
+   c:	00000000 	andeq	r0, r0, r0
+  10:	00010098 	muleq	r1, r8, r0
+  14:	000000b0 	strheq	r0, [r0], -r0	; <UNPREDICTABLE>
+	...
+
+Déassemblage de la section .debug_info:
+
+00000000 <.debug_info>:
+   0:	00000080 	andeq	r0, r0, r0, lsl #1
+   4:	00000002 	andeq	r0, r0, r2
+   8:	01040000 	mrseq	r0, (UNDEF: 4)
+   c:	00000000 	andeq	r0, r0, r0
+  10:	00010098 	muleq	r1, r8, r0
+  14:	00010148 	andeq	r0, r1, r8, asr #2
+  18:	74736574 	ldrbtvc	r6, [r3], #-1396	; 0xfffffa8c
+  1c:	6572705f 	ldrbvs	r7, [r2, #-95]!	; 0xffffffa1
+  20:	74706d65 	ldrbtvc	r6, [r0], #-3429	; 0xfffff29b
+  24:	532e6565 			; <UNDEFINED> instruction: 0x532e6565
+  28:	6f682f00 	svcvs	0x00682f00
+  2c:	742f656d 	strtvc	r6, [pc], #-1389	; 34 <_start-0x10064>
+  30:	6c726163 	ldfvse	f6, [r2], #-396	; 0xfffffe74
+  34:	72702f65 	rsbsvc	r2, r0, #404	; 0x194
+  38:	74656a6f 	strbtvc	r6, [r5], #-2671	; 0xfffff591
+  3c:	544f2f73 	strbpl	r2, [pc], #-3955	; 44 <_start-0x10054>
+  40:	2f415741 	svccs	0x00415741
+  44:	74736964 	ldrbtvc	r6, [r3], #-2404	; 0xfffff69c
+  48:	6e696c2f 	cdpvs	12, 6, cr6, cr9, cr15, {1}
+  4c:	782d7875 	stmdavc	sp!, {r0, r2, r4, r5, r6, fp, ip, sp, lr}
+  50:	365f3638 			; <UNDEFINED> instruction: 0x365f3638
+  54:	746f2f34 	strbtvc	r2, [pc], #-3892	; 5c <_start-0x1003c>
+  58:	2d617761 	stclcs	7, cr7, [r1, #-388]!	; 0xfffffe7c
+  5c:	65726f63 	ldrbvs	r6, [r2, #-3939]!	; 0xfffff09d
+  60:	75622d32 	strbvc	r2, [r2, #-3378]!	; 0xfffff2ce
+  64:	2f646c69 	svccs	0x00646c69
+  68:	73766564 	cmnvc	r6, #100, 10	; 0x19000000
+  6c:	636f6c5f 	cmnvs	pc, #24320	; 0x5f00
+  70:	00787561 	rsbseq	r7, r8, r1, ror #10
+  74:	20554e47 	subscs	r4, r5, r7, asr #28
+  78:	32205341 	eorcc	r5, r0, #67108865	; 0x4000001
+  7c:	2e36322e 	cdpcs	2, 3, cr3, cr6, cr14, {1}
+  80:	80010031 	andhi	r0, r1, r1, lsr r0
+
+Déassemblage de la section .debug_abbrev:
+
+00000000 <.debug_abbrev>:
+   0:	10001101 	andne	r1, r0, r1, lsl #2
+   4:	12011106 	andne	r1, r1, #-2147483647	; 0x80000001
+   8:	1b080301 	blne	200c14 <__bss_end__+0x1e0acc>
+   c:	13082508 	movwne	r2, #34056	; 0x8508
+  10:	00000005 	andeq	r0, r0, r5
+
+Déassemblage de la section .debug_line:
+
+00000000 <.debug_line>:
+   0:	00000065 	andeq	r0, r0, r5, rrx
+   4:	00270002 	eoreq	r0, r7, r2
+   8:	01020000 	mrseq	r0, (UNDEF: 2)
+   c:	000d0efb 	strdeq	r0, [sp], -fp
+  10:	01010101 	tsteq	r1, r1, lsl #2
+  14:	01000000 	mrseq	r0, (UNDEF: 0)
+  18:	00010000 	andeq	r0, r1, r0
+  1c:	74736574 	ldrbtvc	r6, [r3], #-1396	; 0xfffffa8c
+  20:	6572705f 	ldrbvs	r7, [r2, #-95]!	; 0xffffffa1
+  24:	74706d65 	ldrbtvc	r6, [r0], #-3429	; 0xfffff29b
+  28:	532e6565 			; <UNDEFINED> instruction: 0x532e6565
+  2c:	00000000 	andeq	r0, r0, r0
+  30:	02050000 	andeq	r0, r5, #0
+  34:	00010098 	muleq	r1, r8, r0
+  38:	2f2f2f16 	svccs	0x002f2f16
+  3c:	2f2f2f2f 	svccs	0x002f2f2f
+  40:	2f2f2f2f 	svccs	0x002f2f2f
+  44:	2f2f2f2f 	svccs	0x002f2f2f
+  48:	2f2f2f2f 	svccs	0x002f2f2f
+  4c:	2f2f2f2f 	svccs	0x002f2f2f
+  50:	2f2f2f2f 	svccs	0x002f2f2f
+  54:	2f2f2f2f 	svccs	0x002f2f2f
+  58:	2f2f2f30 	svccs	0x002f2f30
+  5c:	2f2f2f2f 	svccs	0x002f2f2f
+  60:	2f2f2f2f 	svccs	0x002f2f2f
+  64:	01000202 	tsteq	r0, r2, lsl #4
+  68:	Adresse 0x0000000000000068 hors limites.
+
